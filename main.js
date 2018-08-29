@@ -19,7 +19,7 @@ app.get('/tickets', function (req, res) {
   for (i = 0; i < 5; i++) {
     var id = faker.random.uuid();
     var data = {
-      "customer": faker.company.companyName(),
+      "customer": faker.company.companyName().toUpperCase(),
       "status": "Resolved",
       "product": faker.commerce.productName(),
      "_id": id,
