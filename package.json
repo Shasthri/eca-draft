@@ -1,0 +1,14 @@
+{
+  "name": "eca-training",
+  "version": "1.0.0",
+  "description": "Warranty claim service",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "faker": "^4.1.0"
+  }
+}
