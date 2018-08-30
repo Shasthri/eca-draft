@@ -9,15 +9,20 @@ Scenario:
   - Prepare your DevCS environment (if necessary)
   - Create NodeJS builder template
   - Create new project in DevCS - use this repository as source repository.
-  - Create build job to init NodeJS application and package using Docker image
+  - Create build job to init NodeJS application and package using Docker image and use Main_V1,js as application that is going to be executable in the docker image
   - Push containerized application to Docker Registry
-- Deploy the service on Aura
-- Modify the application (The build job will create and push new version of the container packaged application to Docker registry.)
-- Make canary deployment using Microservices console
+- Deploy the service on Microservices Platform
+- Setup Istio Rule to point that the microservice is implemented with version V1
+- Create another build job in the DevCS that uses Main_V2.js as application, package using Docker and push to repository.
+- Check that service is still being served fully by V1
+- Change the Istio rule to define canary deployment and point 50/50 and check that half of the requests are being served by V1 and half by V2
+- Change the Istio rule to define canary deployment and define traffic percentages as 50/50 and check that half of the requests are being served by V1 and half by V2
+- Change the Istio rule to define canary deployment and define traffic percentages as 0/100 and check that alll requests are being served by V2
 - Register the service endpoint endpoint in Apiary
 
 ---
 
+To simplify testing for a moment you don't need to setup DevCS. The apps are built and packaged into Docker images already
 The two versions of container packaged application available at:
 - [peternagy/eca-draft:1.0](https://hub.docker.com/r/peternagy/eca-draft/tags/)
 - [peternagy/eca-draft:2.0](https://hub.docker.com/r/peternagy/eca-draft/tags/)
