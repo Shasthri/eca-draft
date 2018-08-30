@@ -15,7 +15,6 @@ Scenario:
 - Setup Istio Rule to point that the microservice is implemented with version V1
 - Create another build job in the DevCS that uses Main_V2.js as application, package using Docker and push to repository.
 - Check that service is still being served fully by V1
-- Change the Istio rule to define canary deployment and point 50/50 and check that half of the requests are being served by V1 and half by V2
 - Change the Istio rule to define canary deployment and define traffic percentages as 50/50 and check that half of the requests are being served by V1 and half by V2
 - Change the Istio rule to define canary deployment and define traffic percentages as 0/100 and check that alll requests are being served by V2
 - Register the service endpoint endpoint in Apiary
