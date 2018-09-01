@@ -9,8 +9,7 @@ Prerequisites:
 
 Scenario:
 
-- Design an API
-  Follow the [Designing an API](tutorials/design.api.md) tutorial, to Design your API
+- [Designing an API](tutorials/design.api.md)
 - Implement microservice endpoint ([based on this blueprint](ticketService.apib))
   - [Prepare your DevCS environment and create builder template](tutorials/devcs.setup.md)
   - Create new project in DevCS - use this repository as source repository.
@@ -20,13 +19,14 @@ Scenario:
 - Create another build job in the DevCS that uses Main_V2.js as application, package using Docker and push to repository.
 - [Deploy the service V2 on Microservices Platform](tutorials/microservices.md#deploy-and-check-the-service-v2-on-microservices-platform)
 - [Check that service is still being served fully by V1](tutorials/microservices.md#check-that-service-is-still-being-served-fully-by-v1)
-- [Change the Istio rule to define canary deployment and define traffic percentages as 50/50 and check that half of the requests are being served by V1 and half by V2](tutorials/microservices.md#change-the-istio-rule-to-define-canary-deployment-and-define-traffic-percentages-as-50---50-and-check-that-half-of-the-requests-are-being-served-by-v1-and-half-by-v2)
+- [Change the Istio rule to define canary deployment and define traffic percentages as 50/50 and check that half of the requests are being served by V1 and half by V2](tutorials/microservices.md#change-the-istio-rule-to-define-canary-deployment-and-define-traffic-percentages-as-5050-and-check-that-half-of-the-requests-are-being-served-by-v1-and-half-by-v2)
 - [Change the Istio rule to define canary deployment and define traffic percentages as 0/100 and check that all requests are being served by V2](tutorials/microservices.md#change-the-istio-rule-to-define-canary-deployment-and-define-traffic-100-to-v2-and-check-that-all-requests-are-being-served-by-v2)
-- Register the service endpoint endpoint in Apiary
+- [Creating an API Policy Implementation](tutorials/create.api.md)
+- [Deploy API](tutorials/deploy.api.md)
 
 ---
 
-To simplify testing for a moment you don't need to setup DevCS. The apps are built and packaged into Docker images already
+To simplify testing for a moment you don't need to setup DevCS. The apps are built and packaged into Docker images already.
 The two versions of container packaged application available at:
 - [peternagy/eca-draft:1.0](https://hub.docker.com/r/peternagy/eca-draft/tags/)
 - [peternagy/eca-draft:2.0](https://hub.docker.com/r/peternagy/eca-draft/tags/)
