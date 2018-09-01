@@ -1,0 +1,60 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ecadraft
+  labels:
+    app: ecadraft
+spec:
+  ports:
+  - port: 3000
+    name: http
+  selector:
+    app: ecadraft
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: ecadraft-v1
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ecadraft
+        version: v1
+    spec:
+      containers:
+      - name: ecadraft
+        image: peternagy/eca-draft:1.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3000
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: ecadraft-gateway
+spec:
+  selector:
+    istio: ingressgateway # use istio default controller
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "*"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: ecadraft
+spec:
+  host: ecadraft
+  subsets:
+  - name: v1
+    labels:
+      version: v1
+  - name: v2
+    labels:
+      version: v2

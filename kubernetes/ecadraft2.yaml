@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: ecadraft-v2
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ecadraft
+        version: v2
+    spec:
+      containers:
+      - name: ecadraft
+        image: peternagy/eca-draft:2.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3000

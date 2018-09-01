@@ -1,22 +1,27 @@
 # eca-draft
 
+Prerequisites:
+
+- Oracle Cloud Account (DevCS, OCIR, OKE)
+  - DevCS
+  - OCIR
+  - OKE - Microservices platform installed
+
 Scenario:
 
 - Design an API
-
-  Follow the [Designing an API](https://github.com/oracle/learning-library/tree/master/workshops/api-platform/tutorials/design/design_api) tutorial, to Design your API
-- Implement microservice endpoint ([based on this blueprint](https://github.com/oracle/learning-library/blob/master/workshops/api-platform/tutorials/design/design_api/ticketService.apib))
-  - Prepare your DevCS environment (if necessary)
-  - Create NodeJS builder template
+  Follow the [Designing an API](tutorials/design.api.md) tutorial, to Design your API
+- Implement microservice endpoint ([based on this blueprint](ticketService.apib))
+  - [Prepare your DevCS environment and create builder template](tutorials/devcs.setup.md)
   - Create new project in DevCS - use this repository as source repository.
   - Create build job to init NodeJS application and package using Docker image and use Main_V1,js as application that is going to be executable in the docker image
   - Push containerized application to Docker Registry
-- Deploy the service on Microservices Platform
-- Setup Istio Rule to point that the microservice is implemented with version V1
+- [Deploy and check the service V1 on Microservices Platform](tutorials/microservices.md)
 - Create another build job in the DevCS that uses Main_V2.js as application, package using Docker and push to repository.
+- [Deploy the service V2 on Microservices Platform](tutorials/microservices.md)
 - Check that service is still being served fully by V1
-- Change the Istio rule to define canary deployment and define traffic percentages as 50/50 and check that half of the requests are being served by V1 and half by V2
-- Change the Istio rule to define canary deployment and define traffic percentages as 0/100 and check that alll requests are being served by V2
+- [Change the Istio rule to define canary deployment and define traffic percentages as 50/50 and check that half of the requests are being served by V1 and half by V2](tutorials/microservices.md)
+- [Change the Istio rule to define canary deployment and define traffic percentages as 0/100 and check that all requests are being served by V2](tutorials/microservices.md)
 - Register the service endpoint endpoint in Apiary
 
 ---
