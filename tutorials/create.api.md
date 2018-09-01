@@ -26,7 +26,7 @@ Once your API is created, you will see it in the list of APIs.  Go ahead and cli
 #### Select the specification
 > Note: If you are using the *Apiary Free* plan, this option won't be available to you.  An API to be linked to the implementation must belong to a team.  If your API is not owned by a team in Apiary, then you can skip this step.
 
-On the API Specification tab (left-hand side), you can choose your API design that you created in Apiary during the [Designing an API](design.api) lab.  
+On the API Specification tab (left-hand side), you can choose your API design that you created in Apiary during the [Designing an API](design.api.md) lab.  
 
 
 #### Select and configuration implementation policies
@@ -61,7 +61,7 @@ To configure the service request, first, Hover over the Service Request policy, 
 
 You can either enter the URL directly, or reference an existing service.  If this is your first API, go ahead and just enter the URL directly.
 1. Policy Dialog, choose to enter a URL:
-  1. Enter the Apiary Mock Service URL from [Designing an API](design.api) in the back-end Service URL field.
+  1. Enter the Apiary Mock Service URL from [Designing an API](design.api.md) in the back-end Service URL field.
   1. Remove the “/tickets” from the mock-service URL so the API can be designed to call multiple end-points such as “/incidents”
 1. Leave the Service Account as None
 1. If your gateway is behind your corporate firewall, then you will need to make sure that the *Use Gateway Node Proxy* is checked.
@@ -95,4 +95,4 @@ In this tutorial you learned the following:
 To learn more about creating APIs, visit [Creating an API](http://www.oracle.com/pls/topic/lookup?ctx=en/cloud/paas/api-platform-cloud&id=GUID-B9691D64-FCD2-4A8C-9DA3-8E29CB48E1E2) in our documentation
 
 #### Next Steps
- - [Deploying an API](deploy.api)
+ - [Deploying an API](deploy.api.md)

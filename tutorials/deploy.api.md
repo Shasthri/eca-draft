@@ -3,7 +3,7 @@ An API must be deployed to a gateway.  After successfully deploying the API, it 
 
 ## Before you begin
 - You have an API Platform environment.
-- You have completed the tutorial [Creating an API Policy Implementation](create.api)
+- You have completed the tutorial [Creating an API Policy Implementation](create.api.md)
   - You have the credentials of the user who created the API or a user who has the appropriate grants to *Deploy* or *Manage* the API.
 - Your environment has at least one gateway deployed and the user who will deploy the API to the gateway has the  appropriate grant to [request deployments](gateway.grants.md) to that gateway.  Typically a user with the *API Manager* role
 - You have the credentials of the user who can [deploy to the gateway](gateway.grants.md).  Typically a user with the *Gateway Manager* role.
