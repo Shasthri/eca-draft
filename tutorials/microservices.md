@@ -38,18 +38,18 @@ Set GATEWAY_URL
 
     $ export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT
 
-Define VirtualService for 100% traffic to v1.
+Define VirtualService for 100% traffic to V1.
 
     $ kubectl apply -f kubernetes/ecadraft-virtual-service-v1.yaml
     virtualservice.networking.istio.io/ecadraft created
 
-Check 100% traffic showing v1
+Check 100% traffic showing V1
 
     $ curl http://$GATEWAY_URL/tickets
     {"_items":[{"customer":"Krajcik Inc","status":"Resolved","product":"Licensed Wooden Salad","_id":"25ccbcc4-a989-4334-a341-fcc18e4efced"...
     ...
 
-Please note v1 provides customer name in lowercase except the first capital letter.
+Please note V1 provides customer name in lowercase except the first capital letter.
 
 ### Deploy and check the service V2 on Microservices Platform
 
@@ -61,20 +61,20 @@ Deploy the ecadraft sample application (v2), service, destination rule and gatew
 
 ### Check that service is still being served fully by V1
 
-Check multiple times that 100% traffic showing v1
+Check multiple times that 100% traffic showing V1
 
     $ curl http://$GATEWAY_URL/tickets
     {"_items":[{"customer":"Krajcik Inc","status":"Resolved","product":"Licensed Wooden Salad","_id":"25ccbcc4-a989-4334-a341-fcc18e4efced"...
     ...
 
-### Change the Istio rule to define canary deployment and define traffic percentages as 50% - 50% and check that half of the requests are being served by v1 and half by v2
+### Change the Istio rule to define canary deployment and define traffic percentages as 50/50 and check that half of the requests are being served by V1 and half by V2
 
-Define VirtualService for 50% - 50% traffic to v1 & v2. 
+Define VirtualService for 50% - 50% traffic to V1 & V2. 
 
     $ kubectl apply -f kubernetes/ecadraft-virtual-service-50-50.yaml
     virtualservice.networking.istio.io/ecadraft configured
 
-Check 50% - 50% v1 & v2 content
+Check 50% - 50% V1 & V2 content
 
     $ curl http://$GATEWAY_URL/tickets
     {"_items":[{"customer":"Krajcik Inc","status":"Resolved","product":"Licensed Wooden Salad","_id":"25ccbcc4-a989-4334-a341-fcc18e4efced"...
@@ -83,16 +83,16 @@ Check 50% - 50% v1 & v2 content
     $ curl http://$GATEWAY_URL/tickets
     {"_items":[{"customer":"MONAHAN LLC","status":"Resolved","product":"Licensed Wooden Salad","_id":"25ccbcc4-a989-4334-a341-fcc18e4efced"...
 
-Please note the v2 provides customer name in uppercase.
+Please note the V2 provides customer name in uppercase.
 
-### Change the Istio rule to define canary deployment and define traffic 100% to v2 and check that all requests are being served by v2
+### Change the Istio rule to define canary deployment and define traffic 100% to V2 and check that all requests are being served by V2
 
-Define VirtualService for 100% traffic to v2. 
+Define VirtualService for 100% traffic to V2. 
 
     $ kubectl apply -f kubernetes/ecadraft-virtual-service-v2.yaml
     virtualservice.networking.istio.io/ecadraft configured
 
-Check 100% traffic showing v2
+Check 100% traffic showing V2
 
     $ curl http://$GATEWAY_URL/tickets
     {"_items":[{"customer":"MITCHELL - ROLFSON","status":"Resolved","product":"Licensed Wooden Salad","_id":"25ccbcc4-a989-4334-a341-fcc18e4efced"...
