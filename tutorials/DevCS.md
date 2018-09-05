@@ -1,32 +1,30 @@
-Managing Projects with Developer Cloud Service
+# Managing Projects with Developer Cloud Service
 Release 18.3.3
-
-September 5, 2018
-
  
-Lab Overview
+## Lab Overview
 In this lab you’ll learn how to leverage Oracle Developer Cloud Service to help  a development team manage their agile development process and automate their DevOps cycle for both software and infrastructure. 
-Individual Exercises
+
 You will be using a shared instance of Developer Cloud Service (DevCS) – to keep from mixing your project with others – please name your project with your short oracle user id.
 
-Lab 1: Creating a DevCS Project
+## Creating a DevCS Project
 In this lab you’ll create a DevCS project for your team, and learn about some of the basics tasks of a project administrator.
 Key features and functionality:
-•	Built-in best practice predefined content
-o	Managing users
-o	Defining Git Repository
-o	Defining Issue tracking properties	
+
+ -	Managing users
+ -	Defining Issue tracking properties
+ -	Defining Git Repository
+
 
  
-Exercise 1 	Creating a Project
+### Creating a Project
 1.	Using your cloud user – login into your cloud account.
 2.	In the my services dashboard locate Developer (if not visible click customize dashboard and make sure developer is in show mode).
 3.	Open the service console.
 4.	Create a new project – the name of the new project should contain your short Oracle user name (sshmeltz for example)
 5.	Choose the following options in the dialog 
-- 	Private project
--   Initial Repository
-- 	Confluence syntax for your wiki
+ - 	Private project
+ -   Initial Repository
+ - 	Confluence syntax for your wiki
 
 ![](/tutorials/DevcsImages/Picture1.png)
 ![](/tutorials/DevcsImages/Picture2.png) 
@@ -51,7 +49,7 @@ Exercise 1 	Creating a Project
 
 
 
-Exercise 2 	Managing Issues
+##	Managing Issues
 Now we’ll see how to use the issue tracking in DevCS to track your project task list.
 1.	From the left navbar choose Issues
 2.	Click New Issue to add an issue to your repository
@@ -78,5 +76,8 @@ Now we’ll see how to use the issue tracking in DevCS to track your project tas
 10.	Add all your issues to the current sprint.
 11.	Click to start the sprint.
 12.	Browse through your dashboard and charts to see your development team’s  status.
+
+# Adding a Git Repository
+A DevCS Project can have multiple git repositories. We are going to add a new repostiroy copying the content of an existing repository on GitHub.
 
 
