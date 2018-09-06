@@ -217,6 +217,18 @@ The step above will also print the GATEWAY_URL (API endpoint) for you. Once the 
     $ curl -HHost:ecadraft.example.com http://<GATEWAY_URL>/tickets
     {"_items":[{"customer":"Krajcik Inc","status":"Resolved","product":"Licensed Wooden Salad","_id":"25ccbcc4-a989-4334-a341-fcc18e4efced"...
 
+### Bonus: Define pipelines in Developer Cloud Service
+
+Now that you have two build jobs, one for building and another for deploying the service, you can connect the two into a single flow pipeline. This way you can automate the deployment of new versions whenever a build happens.
+
+1. In Developer Cloud Service, click the build section in the left side menu, and switch to the "Pipelines" tab.
+2. Click "New Pipelines" to create a new pipeline and give it a name "DockerFlow"
+3. Drag the two jobs into the diagram. Connect them with an arrow so when the build job finishes it auomtatically invokes the deploy job.
+4. You can directly run this flow, or set the flow to start auotmatically when one of the jobs starts.
+
+![](/tutorials/DevcsImages/Picture8.png)
+
+
 ### 4. Create build job to package service V2 in container and push to container registry
 
 Create new build job.
