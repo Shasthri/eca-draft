@@ -58,7 +58,7 @@ Click Create Job.
 
 ![](images/build.jobs/02.build.v1.png)
 
-The build job configuration opens. On the first Source Control tab click Add Source Control and select Git. From the Repository dropdown list select the source code repository for service V1.
+The build job configuration opens. On the first Source Control tab click Add Source Control and select Git. From the Repository dropdown list select the source code repository for service V1. Check the box to "Automatically perform build on SCM change", this will automate the flow so every time code is changed in your Git repostiory a build will start.
 
 ![](images/build.jobs/03.build.v1.git.png)
 
