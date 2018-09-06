@@ -80,4 +80,14 @@ Now we’ll see how to use the issue tracking in DevCS to track your project tas
 # Adding a Git Repository
 A DevCS Project can have multiple git repositories. We are going to add a new repostiroy copying the content of an existing repository on GitHub.
 
+1. In the left menu choose Administration and then the Repositories section
+2. Click to add a New Hosted Repository
+3. Name the repostiroy - microservice, and choose to import existing repository - use the URL: 
+- https://github.com/nagypeter/eca-draft
+Click Create.
 
+![](/tutorials/DevcsImages/Picture7.png)
+
+4. In the left menu choose the Code section and you'll see all the code you need for the next labs in your project.
+5. You can click on any of the files to see the content and even edit it directly from your browser.
+6. From the web interface you can also branch the code when needed.
