@@ -3,8 +3,8 @@
 # Based on https://docs.us-phoenix-1.oraclecloud.com/Content/Resources/Assets/signing_sample_bash.txt
 
 CONFIG=${CONFIG:-~/.oci/config}
-##jl DEFAULT_ENDPOINT="containerengine.us-phoenix-1.oraclecloud.com"
-DEFAULT_ENDPOINT="containerengine.us-ashburn-1.oraclecloud.com"
+DEFAULT_ENDPOINT="containerengine.us-phoenix-1.oraclecloud.com"
+#DEFAULT_ENDPOINT="containerengine.us-ashburn-1.oraclecloud.com"
 ENDPOINT=${ENDPOINT:-"$DEFAULT_ENDPOINT"}
 
 function die { echo "FATAL: $@" 1>&2 ; exit 2; }

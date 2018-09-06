@@ -12,7 +12,9 @@ spec:
     spec:
       containers:
       - name: ecadraft
-        image: peternagy/eca-draft:2.0
+        image: phx.ocir.io/showitbuildit1/eca-$COMPARTMENT:2.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 3000
+      imagePullSecrets:
+      - name: regcred

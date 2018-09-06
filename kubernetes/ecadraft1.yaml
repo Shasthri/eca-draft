@@ -25,11 +25,12 @@ spec:
     spec:
       containers:
       - name: ecadraft
-        image: peternagy/eca-draft:1.0
+        image: phx.ocir.io/showitbuildit1/eca-$COMPARTMENT:1.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 3000
----
+      imagePullSecrets:
+      - name: regcred
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
