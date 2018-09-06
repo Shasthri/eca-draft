@@ -10,8 +10,6 @@ Prerequisites:
 Scenario:
 
 - [Designing an API](tutorials/design.api.md)
-- Implement microservice endpoint ([based on this blueprint](ticketService.apib))
-  - [Prepare your DevCS environment and create builder template](tutorials/devcs.setup.md)
 - [Define a DevCS Project and add members and issues to a sprint](tutorials/DevCS.md)
 - Add a git repository to your project - use this repository as source repository.
   - Create build job to init NodeJS application and package using Docker image and use Main_V1,js as application that is going to be executable in the docker image
