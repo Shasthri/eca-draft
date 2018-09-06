@@ -4,7 +4,7 @@ metadata:
   name: ecadraft
 spec:
   hosts:
-  - "*"
+  - "ecadraft.example.com"
   gateways:
   - ecadraft-gateway
   http:
