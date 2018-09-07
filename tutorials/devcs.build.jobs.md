@@ -78,8 +78,8 @@ Click again the Add Builder and select Docker build.
 ![](images/build.jobs/06.build.v1.docker.build.png)
 
 Fill out the following:
--	Registry Host: <region-code\>.ocir.io
--	Image name: <oci-tenant\>/<repository-name\> (what you created above)
+-	Registry Host: phx.ocir.io
+-	Image name: showitbuildit1/<repository-name\> (what you created above using the format eca-<compartment-name\>)
 -	Version Tag: 1.0
 - Context Root in Workspace: yes
 - Dockerfile: Dockerfile_V1
@@ -91,8 +91,8 @@ Click again the Add Builder and select Docker push.
 ![](images/build.jobs/08.build.v1.docker.push.png)
 
 Fill out the following:
--	Registry Host: <region-code\>.ocir.io
--	Image name: <oci-tenant\>/<repository-name\> (what you created above)
+-	Registry Host: phx.ocir.io
+-	Image name: showitbuildit1/<repository-name\> (what you created above using the format eca-<compartment-name\>)
 -	Version Tag: 1.0
 
 ![](images/build.jobs/09.build.v1.docker.push.details.png)
@@ -105,7 +105,9 @@ Click on Build now.
 
 ![](images/build.jobs/11.build.v1.start.png)
 
-You don't need to wait for the result if there is no available Executor. You can continue with the following step and get back to verify when the job is completed.
+You don't need to wait for the result if there is no available Executor. You can continue with the following step and get back to verify in Registry when the job is completed.
+
+![](images/build.jobs/11.build.v1.verify.png)
 
 ### 3. Deploy service V1 to Microservices platform and test
 
@@ -210,9 +212,21 @@ Add another Unix Shell Builder which will execute the service V1 deployment. Cop
 
     kubectl apply -f kubernetes/ecadraft-virtual-service-v1.yaml
 
+Yous should have similar builders configuration for deploy_service_V1 job:
+
+![](images/build.jobs/20.deploy.v1.builders.details.png)
+
 Click Save and execute the deploy_service_V1 build job.
 
-The step above will also print the GATEWAY_URL (API endpoint) for you. Once the job completed check the log. Click on the log icon and find the GATEWAY_URL value. It has to be a public IP address and port. When you have that execute the following `curl` command to test the application:
+The step above will also print the GATEWAY_URL (API endpoint) for you. Once the job completed check the log. Click on the log icon to get the build log.
+
+![](images/build.jobs/21.deploy.v1.view.logs.png)
+
+In the log find the GATEWAY_URL variable's value:
+
+![](images/build.jobs/22.deploy.v1.gatewayurl.png)
+
+It has to be a public IP address and port. When you have this execute the following `curl` command to test the application:
 
     $ curl -HHost:ecadraft.example.com http://<GATEWAY_URL>/tickets
     {"_items":[{"customer":"Krajcik Inc","status":"Resolved","product":"Licensed Wooden Salad","_id":"25ccbcc4-a989-4334-a341-fcc18e4efced"...
@@ -220,6 +234,8 @@ The step above will also print the GATEWAY_URL (API endpoint) for you. Once the 
 ### 4. Create build job to package service V2 in container and push to container registry
 
 Create new build job.
+
+![](images/build.jobs/01.build.jobs.png)
 
 Fill out the following:
 -	Job Name: build_service_V2
@@ -229,20 +245,27 @@ Fill out the following:
 
 Click Create.
 
+![](images/build.jobs/29.build.v2.create.png)
+
 Click on the new build_service_V2 job to configure. Switch to the Builders tab and modify the followings:
 
 - Version Tag (every location): 1.0 -> 2.0
 - Dockerfile: Dockerfile_V1 -> Dockerfile_V2
 
+
+![](images/build.jobs/30.build.v2.builders.changes.png)
+
 Click Save than Build Now.
 
-![](images/build.jobs/30.deploy.v2.builders.changes.png)
-
 When the job finished verify the V2 image in your repository.
+
+![](images/build.jobs/31.build.v2.verify.png)
 
 ### 5. Deploy service V2 to Microservices platform
 
 Create new build job.
+
+![](images/build.jobs/01.build.jobs.png)
 
 Fill out the following:
 -	Job Name: deploy_service_V2
@@ -252,24 +275,32 @@ Fill out the following:
 
 Click Create.
 
-Click on the new deploy_service_V2 job to configure. Switch to the Builders tab and modify the followings in the last Unix Shell Builder Step:
+![](images/build.jobs/32.deploy.v2.create.png)
+
+Switch to the Builders tab and modify the followings in the last Unix Shell Builder Step:
 
 - ecadraft1.yaml -> ecadraft2.yaml
 - ecadraft1.final.yaml -> ecadraft2.final.yaml
-- Delete: kubectl apply -f kubernetes/ecadraft-virtual-service-v1.yaml
+- **Delete (!)**: kubectl apply -f kubernetes/ecadraft-virtual-service-v1.yaml
+
+![](images/build.jobs/33.deploy.v2.builders.changes.png)
 
 Click Save than Build Now.
 
 ### 6. Check that service is still being served fully by V1
 
-Using the curl command above check multiple times that 100% traffic showing V1:
+Using the 'curl' command  and GATEWAY_URL value from above check multiple times that 100% traffic showing V1:
 
     $ curl -HHost:ecadraft.example.com http://<GATEWAY_URL>/tickets
     {"_items":[{"customer":"Krajcik Inc","status":"Resolved","product":"Licensed Wooden Salad","_id":"25ccbcc4-a989-4334-a341-fcc18e4efced"...
 
+V1 service produces customer name with capital letter but in lowercase. While V2 will produce customer name in uppercase (all letter).
+
 ### 7. Change the Istio rule to define canary deployment and define traffic percentages as 50/50 and check that half of the requests are being served by V1 and half by V2
 
 Create new build job.
+
+![](images/build.jobs/01.build.jobs.png)
 
 Fill out the following:
 -	Job Name: canary-deploy-50-50
@@ -278,11 +309,15 @@ Fill out the following:
 
 Click Create.
 
-Click on the new canary-deploy-50-50 job to configure. Switch to the Builders tab and modify the the last Unix Shell Builder Step to contain this single command:
+![](images/build.jobs/34.build.50_50.create.png)
+
+Switch to the Builders tab and modify the the last Unix Shell Builder Step to contain this single command:
 
     kubectl apply -f kubernetes/ecadraft-virtual-service-50-50.yaml
 
 Click Save than Build Now.
+
+![](images/build.jobs/35.build.50_50.changes.png)
 
 Once the deployment completed check 50% - 50% V1 & V2 content using the curl command:
 
@@ -293,11 +328,13 @@ Once the deployment completed check 50% - 50% V1 & V2 content using the curl com
     $ curl -HHost:ecadraft.example.com http://<GATEWAY_URL>/tickets
     {"_items":[{"customer":"MONAHAN LLC","status":"Resolved","product":"Licensed Wooden Salad","_id":"25ccbcc4-a989-4334-a341-fcc18e4efced"...
 
-Please note the V2 provides customer name in uppercase.
+Please note the V2 provides customer name only in uppercase. Hit few times and you can see the balance between the versions.
 
 ### 8. Change the Istio rule to define canary deployment and define traffic percentages as 0/100 and check that all requests are being served by V2
 
 Create new build job.
+
+![](images/build.jobs/01.build.jobs.png)
 
 Fill out the following:
 -	Job Name: canary-deploy-v2-100
@@ -306,11 +343,15 @@ Fill out the following:
 
 Click Create.
 
-Click on the new canary-deploy-v2-100 job to configure. Switch to the Builders tab and modify the the last Unix Shell Builder Step to contain this single command:
+![](images/build.jobs/36.build.v2.only.create.png)
+
+Switch to the Builders tab and modify the the last Unix Shell Builder Step to contain this single command:
 
     kubectl apply -f kubernetes/ecadraft-virtual-service-v2.yaml
 
 Click Save than Build Now.
+
+![](images/build.jobs/37.build.v2.only.builders.changes.png)
 
 Once the deployment completed check that all request served by V2 (uppercase customer name) using the curl command:
 
@@ -321,4 +362,4 @@ Once the deployment completed check that all request served by V2 (uppercase cus
     $ curl http://$GATEWAY_URL/tickets
     {"_items":[{"customer":"MONAHAN LLC","status":"Resolved","product":"Licensed Wooden Salad","_id":"25ccbcc4-a989-4334-a341-fcc18e4efced"...
 
-Please note every requests get the customer name in uppercase.
+Please note every response contains the customer name in uppercase.

@@ -2,7 +2,7 @@
 
 Prerequisites:
 
-- Oracle Cloud Account (DevCS, OCIR, OKE)
+- Oracle Cloud Account
   - DevCS
   - OCIR
   - OKE - Microservices platform installed
