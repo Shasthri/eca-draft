@@ -197,7 +197,7 @@ Add another Unix Shell Builder which will execute the service V1 deployment. Cop
 
     cat kubernetes/ecadraft1.final.yaml
 
-    kubectl create secret docker-registry regcred --docker-server=phx.ocir.io --docker-username=showitbuildit1/aura --docker-password=<auth-token> --docker-email=aura@acme.com; echo 'secret step'
+    kubectl create secret docker-registry regcred --docker-server=phx.ocir.io --docker-username=showitbuildit1/aura --docker-password=<auth-token> --docker-email=aura@acme.com || echo 'secret exists'
 
     kubectl apply -f kubernetes/ecadraft1.final.yaml
 
