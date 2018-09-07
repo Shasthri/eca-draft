@@ -82,7 +82,7 @@ A DevCS Project can have multiple git repositories. We are going to add a new re
 
 1. In the left menu choose Administration and then the Repositories section
 2. Click to add a New Hosted Repository
-3. Name the repostiroy - microservice, and choose to import existing repository - use the URL: 
+3. Name the repostiroy - eca-draft , and choose to import existing repository - use the URL: 
 - https://github.com/nagypeter/eca-draft
 Click Create.
 
