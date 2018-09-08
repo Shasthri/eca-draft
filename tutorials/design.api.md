@@ -24,6 +24,23 @@ This tutorial will not walk through each step of the API Blueprint, but take som
 
 Make sure to click *Save*
 
+## Use the Mock Server to prototype your design
+When you create your design in Apiary, you get interactive documentation automatically generated, but there is also a mock server that is created for you!  The mock server helps you to prototype your design by a working end-point that you can use.
+> Reminder: Make sure you have saved your design
+
+Every time you click *Save*, Apiary generates a mock-server based on your design.  Using your interactive documentation, you can now test the design.
+
+### Test in the Apiary Console
+  1. Under the *Tickets Collection* in the interactive documentation, click the *List All Tickets*
+  2. The code example should be selected.  Make sure *Mock Server* is selected, and choose the Language of your choice.  
+    _You may switch between the different languages to see examples of how to call the API._  
+  3. After reviewing, click the *Try* button
+  4. You will see options to set various parameters and headers, etc, but in this case just confirm that *Mock Server* is selected and click the *Call Resource* button.
+  5. After the resource executes, scroll down to review the response from the mock server.
+
+## Transfer your API to the team
+Choose the settings menu for your API from the top-menu.  Choose *Transfer to Oracle APIP CS*  This will allow the API design to be linked to the implementation in a later lab.
+
 #### Learn more
 The Apiary design editor provides a rich experience for designing, collaborating and understanding the contract for an API.  Learn more with the following resource(s):
   * [Apiary Editor](https://help.apiary.io/tools/apiary-editor/)
