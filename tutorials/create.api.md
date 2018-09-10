@@ -70,7 +70,7 @@ You can either enter the URL directly, or reference an existing service.  If thi
 
 Now you can deploy your API and test it.  Refer to [Deploying an API](deploy.api.md) for details.
 
-Once you are comfortable with the operation of your API, you can update your API reference to the actual microservice implementation.  To get the implementation endpoint, refer to the [microservices](./microservices.md) lab, specifically the section on *Determining the ingress IP and ports for a LOAD BALANCER ingress gateway*
+Once you are comfortable with the operation of your API, you can update your API reference to the actual microservice implementation.  To get the implementation endpoint, refer to the [microservice implemenation](https://github.com/nagypeter/eca-draft/blob/master/tutorials/devcs.build.jobs.md#3-deploy-service-v1-to-microservices-platform-and-test) lab and search for curl.  Essentially you will be setting the service invocation to be `http://<GATEWAY_URL>/tickets`.  The reference lab will give you a refresher for obtaining the `<GATEWAY_URL>` value.
 
 Once pointing to the actual service, you can re-deploy and test your API against the live service
 
