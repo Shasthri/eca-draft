@@ -1,6 +1,6 @@
 ### New Developer Cloud Service Setup ###
 
-Oracle Developer Cloud Service now supports integration with Oracle Cloud Infrastructure Compute Classic and Oracle Cloud Infrastructure Object Storage Classic.
+Oracle Developer Cloud Service leverages integration with Oracle Cloud Infrastructure Compute Classic and Oracle Cloud Infrastructure Object Storage Classic to provide you with dedicated build servers.
 
 You can create virtual machines (VMs) on Oracle Cloud Infrastructure Compute Classic and use them to run builds of your projects. The archived build artifacts and Maven artifacts are stored on the containers of Oracle Cloud Infrastructure Object Storage Classic.
 
@@ -52,9 +52,9 @@ Here you configure Compute connection:
 
 3. [Create a Build VM template](http://www.oracle.com/webfolder/technetwork/tutorials/obe/cloud/developer/config_buildvm/devcs_create_buildvmtemplate.html)
 
-Name: myLabTemplate
-Platform: Oracle Linux 7
-Software: Include OCIcli, Kubectl, Docker 1 and Node.js 8 (Base images includes Git, Java, JUnit, Maven, Ruby and Ant.)
+- Name: myLabTemplate
+- Platform: Oracle Linux 7
+- Software (make sure to check the check box for "show latest versions only": Include OCIcli, Kubectl, Docker 1 and Node.js 8 (Base images includes Git, Java, JUnit, Maven, Ruby and Ant.)
 ![](images/devcs.setup/DevCS-Build-software2.png)
 
 
