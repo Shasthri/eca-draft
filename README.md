@@ -1,11 +1,4 @@
-# eca-draft
-
-Prerequisites:
-
-- Oracle Cloud Account
-  - DevCS
-  - OCIR
-  - OKE - Microservices platform installed
+# Training for Enterprise Cloud Architects - track Build Modern App
 
 Scenario:
 
@@ -21,3 +14,13 @@ Scenario:
 - [Change the Istio rule to define canary deployment and define traffic percentages as 0/100 and check that all requests are being served by V2](tutorials/devcs.build.jobs.md#8-change-the-istio-rule-to-define-canary-deployment-and-define-traffic-percentages-as-0100-and-check-that-all-requests-are-being-served-by-v2)
 - [Creating an API Policy Implementation](tutorials/create.api.md)
 - [Deploy API](tutorials/deploy.api.md)
+
+===
+
+How to create demo environment with all needed components
+
+- Setup apiary.io account
+- (Setup Developer Cloud Service Instance)[tutorials/devcs.setup.md]
+- Create OKE cluster
+- (Install Microservices Platform)[tutorials/msp.setup.md]
+- Create API Platform Instance
