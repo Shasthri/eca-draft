@@ -21,6 +21,6 @@ How to create demo environment with all needed components
 
 - Setup apiary.io account
 - [Setup Developer Cloud Service Instance](tutorials/devcs.setup.md)
-- Create OKE cluster
+- [Create OKE cluster](tutorials/setup.oke.md)
 - [Install Microservices Platform](tutorials/msp_setup.md)
 - Create API Platform Instance
