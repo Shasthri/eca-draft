@@ -172,7 +172,7 @@ Fill out the following:
 -	Fingerprint: shared by instructor
 -	Tenancy: <tenancy-ocid\> what you find and noted previously
 -	Private Key: shared by instructor
-- Region: US_Ashburn_1 ("us-ashburn-1")
+- Region: US_Phoenix_1 ("us-phoenix-1")
 
 ![](images/build.jobs/18.deploy.v1.builders.ocicli.details.b.png)
 
