@@ -210,6 +210,14 @@ Add another Unix Shell Builder which will execute the service V1 deployment. Cop
     echo 'GATEWAY_URL'
     echo $GATEWAY_URL
 
+    echo '========================================'
+    echo 'ALTERNATIVE GATEWAY_URL if GATEWAY_URL is empty'
+    echo ' IP is in the first column of the table below '
+    kubectl get nodes
+    echo ' PORT is below '
+    kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].nodePort}'
+    echo '========================================'
+
     kubectl apply -f kubernetes/ecadraft-virtual-service-v1.yaml
 
 Yous should have similar builders configuration for deploy_service_V1 job:
@@ -225,6 +233,8 @@ The step above will also print the GATEWAY_URL (API endpoint) for you. Once the 
 In the log find the GATEWAY_URL variable's value:
 
 ![](images/build.jobs/22.deploy.v1.gatewayurl.png)
+
+IF THE GATEWAY_URL IS EMPTY PLEASE LOOK INTO SECTION OF THE LOG THAT DISPLAYS ALTERNATIVE GATEWAY_URL - you need to contruct this as IP:PORT
 
 It has to be a public IP address and port. When you have this execute the following `curl` command to test the application:
 
