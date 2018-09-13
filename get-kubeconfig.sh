@@ -40,7 +40,7 @@ function oci-curl {
     local now="$(LC_ALL=C \date -u "+%a, %d %h %Y %H:%M:%S GMT")"
     local host=$ENDPOINT
     local body="/dev/null"
-    local target="/api/20180222/clusters/${clusterId}/kubeconfig/content"
+    local target="/20180222/clusters/${clusterId}/kubeconfig/content"
     local keyId="$tenancyId/$authUserId/$keyFingerprint"
 
     local curl_method="POST";
