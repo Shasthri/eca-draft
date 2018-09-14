@@ -30,6 +30,7 @@ Click Create Repository.
 
 Fill out the following:
 -	Repository Name: eca-<compartment-name\>
+
 IMPORTANT: REPOSITORY NAME MUST FOLLOW THAT NAMING CONVENTION!!!
 
   For example **eca-c001**
