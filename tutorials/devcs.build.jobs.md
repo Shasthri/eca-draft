@@ -69,7 +69,7 @@ Change to Builders tab and define the build steps. Add your first step by clicki
 Fill out the following:
 -	Registry Host: phx.ocir.io
 -	Username: showitbuildit1/aura
--	Password: Auth token (shared by the instructor)
+-	Password: Auth token (distributed by the instructor on cheat sheet - it is NOT Docker password - look for Auth token)
 
 ![](images/build.jobs/05.build.v1.docker.login.details.png)
 
