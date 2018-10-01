@@ -220,10 +220,10 @@ The step above will also print the IP address and port to access through browser
 
 In the log find the output of the "kubectl get svc" command:
 
-NAME                  TYPE           CLUSTER-IP      EXTERNAL-IP       PORT(S)          AGE
-ecadraft              ClusterIP      10.96.99.179    <none>            3000/TCP         7d
-ecadraft-v1-service   LoadBalancer   10.96.251.206   129.213.169.129   3000:31481/TCP   3d
-kubernetes            ClusterIP      10.96.0.1       <none>            443/TCP          10d
+NAME                  TYPE            CLUSTER-IP      EXTERNAL-IP       PORT(S)           AGE
+ecadraft              ClusterIP       10.96.99.179    <none>            3000/TCP          7d
+ecadraft-v1-service   LoadBalancer    10.96.251.206   129.213.169.129   3000:31481/TCP    3d
+kubernetes            ClusterIP       10.96.0.1       <none>            443/TCP           10d
 
 It has to be a public IP address and port. When you have this execute the following `curl` command to test the application:
 
