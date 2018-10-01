@@ -210,7 +210,7 @@ Add another Unix Shell Builder which will execute the service V1 deployment. Cop
 
 Yous should have similar builders configuration for deploy_service_V1 job:
 
-![](images/build.jobs/20.deploy.v1.builders.details.png)
+![](images/build.jobs/20.deploy.v1.builders.details-new.png)
 
 Click Save and execute the deploy_service_V1 build job.
 
