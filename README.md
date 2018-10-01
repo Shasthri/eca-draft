@@ -8,7 +8,6 @@ Scenario:
 - [Deploy service V1 to Microservices platform and test](tutorials/devcs.build.jobs.md#3-deploy-service-v1-to-microservices-platform-and-test)
 - [Create build job to package service V2 in container and push to container registry](tutorials/devcs.build.jobs.md#4-create-build-job-to-package-service-v2-in-container-and-push-to-container-registry)
 - [Deploy service V2 to Microservices platform](tutorials/devcs.build.jobs.md#5-deploy-service-v2-to-microservices-platform)
-- [Check that service is still being served fully by V1](tutorials/devcs.build.jobs.md#6-check-that-service-is-still-being-served-fully-by-v1)
 
 ===
 
