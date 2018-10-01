@@ -294,13 +294,3 @@ Switch to the Builders tab and modify the followings in the last Unix Shell Buil
 ![](images/build.jobs/33.deploy.v2.builders.changes.png)
 
 Click Save than Build Now.
-
-### 6. Check that service is still being served fully by V1
-
-Using the 'curl' command  and GATEWAY_URL value from above check multiple times that 100% traffic showing V1:
-
-    $ curl -HHost:ecadraft.example.com http://<GATEWAY_URL>/tickets
-    {"_items":[{"customer":"Krajcik Inc","status":"Resolved","product":"Licensed Wooden Salad","_id":"25ccbcc4-a989-4334-a341-fcc18e4efced"...
-
-V1 service produces customer name with capital letter but in lowercase. While V2 will produce customer name in uppercase (all letter).
-
