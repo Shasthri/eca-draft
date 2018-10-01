@@ -3,20 +3,15 @@
 ## Lab Overview
 In this lab you’ll learn how to leverage Oracle Developer Cloud Service to build container packaged application (API endpoint), push to Oracle Cloud Infrastructure Registry finally deploy to Microservices platform using build jobs. The key steps are the following:
 
-1. Create container repository using Oracle Cloud Infrastructure Registry to store container packaged services (V1, V2)
+1. Create container repository using Oracle Cloud Infrastructure Registry to store container packaged services (V1)
 2. Create build job to package service V1 in container and push to container registry
 3. Deploy service V1 to Microservices platform and test
-4. Create build job to package service V2 in container and push to container registry
-5. Deploy service V2 to Microservices platform
-6. Check that service is still being served fully by V1
-7. Change the Istio rule to define canary deployment and define traffic percentages as 50/50 and check that half of the requests are being served by V1 and half by V2
-8. Change the Istio rule to define canary deployment and define traffic percentages as 0/100 and check that all requests are being served by V2
+
 
 ## Prerequisites
 
-- [DevCS project contains application source code repository](DevCS.md)
-- Microservices platform running on Oracle Kubernetes Engine
-- Access to OCI-OKE console
+- [Setup Developer Cloud Service Instance](tutorials/devcs.setup.md)
+- [Create OKE cluster](tutorials/setup.oke.md)
 
 ### 1. Create container repository using Oracle Cloud Infrastructure Registry to store container packaged services
 
