@@ -105,11 +105,7 @@ Enter the following:
 
 - **Create in Compartment:** Leave as is.
 - **Name:** A friendly name for the cloud network. E.g. *VCN-Cluster-1*
-- **Create Virtual Cloud Network Only:** Make sure this radio button is selected.
-- **CIDR Block:** A single, contiguous CIDR block for the cloud network. `10.0.0.0/16`. You cannot change this value later.
-- **DNS Resolution:** Select the Use DNS Hostnames in this VCN checkbox.
-- **DNS Label:** Specify a DNS label for the VCN.  Basically the Console will generate one for you. The dialog box automatically displays the corresponding DNS Domain Name for the VCN (<VCN DNS label>.oraclevcn.com).
-- **Tags:** Optionally, you can apply tags.
+- **Create Virtual Cloud Network plus Related Resources:** Make sure this radio button is selected.
 
 Click Create Virtual Cloud Network.
 
